@@ -12,8 +12,8 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: no
-    fig_width: 10
-    fig_height: 6.66
+    fig_width: 6.8
+    fig_height: 6.8
     fig_caption: yes
     code_download: true
   pdf_document:
@@ -41,21 +41,21 @@ library(kableExtra)
 library(ggpubr)
 library(gridExtra)
 library(modelsummary)
-library(gtsummary)
+# library(gtsummary)
 ```
 
 # Importando as planilhas
 ```{r importando planilhas v1, echo = TRUE, message = TRUE, warning = FALSE}
-BJ_od20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_od.csv",header=T)
-BJ_dbo20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_dbo.csv",header=T)
-BJ_ptot20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ptot.csv",header=T)
-BJ_namon20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_namon.csv",header=T)
-BJ_ecoli20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ecoli.csv",header=T)
-BJ_turb20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_turb.csv",header=T)
+# BJ_od20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_od.csv",header=T)
+# BJ_dbo20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_dbo.csv",header=T)
+# BJ_ptot20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ptot.csv",header=T)
+# BJ_namon20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_namon.csv",header=T)
+# BJ_ecoli20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ecoli.csv",header=T)
+# BJ_turb20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_turb.csv",header=T)
 ```
 
 ```{r importando planilha, echo = TRUE, message = TRUE, warning = FALSE}
-bj_rsagua <- read_excel("bj_rsagua.xls", 
+bj_rsagua <- read_excel("S:/DIPLAN/Leonardo Bolsista/Planilhas/RH Guaíba/Plan importação R/Baixo_Jacui/Baixo_Jacui/bj_rsagua.xls", 
     sheet = "Dados_Ajustados", col_types = c("numeric", 
         "text", "numeric", "numeric", "text", 
         "text", "text", "text", "text", "date", 
@@ -79,42 +79,42 @@ bj_rsagua <- read_excel("bj_rsagua.xls",
 # Parâmetros físico químicos
 ## Oxigênio Dissolvido
 ```{r versao1}
-qboxplot(BJ_od20182020,
-         main="Oxigênio Dissolvido",
-         cex.main=2,
-         probs=c(0.20,0.5,0.8),
-         ylab="mg/L",
-         las=0,
-         ylim=c(0,15),
-         col=c(8),
-         cex.lab = 2, 
-         cex.axis = 1.2 ,
-         whisklwd=2.5,
-         outpch="o" )
-abline(h=6,col=4,lwd=2)
-abline(h=5,col=3,lwd=2)
-abline(h=4,col=7,lwd=2)
-abline(h=2,col=2,lwd=2)
-legend("topleft",
-       title="Legenda",
-       legend=c("Classe 1","Classe 2","Classe 3","Classe 4","Pior Classe"),
-       lty=c(1,1,1,1,1),
-       col=c(4,3,7,2,"#AC5079"),
-       lwd=c(10,10,10,10,10),
-       cex = 1.75,
-       pt.cex = 1.75,
-       bg="white")
-legend("topright",
-       legend=c("2018-2020"),
-       pch = 22,
-       pt.bg="gray",
-       title="Período",
-       cex = 2,
-       pt.cex = 2,
-       bg="white")
+# qboxplot(BJ_od20182020,
+#          main="Oxigênio Dissolvido",
+#          cex.main=2,
+#          probs=c(0.20,0.5,0.8),
+#          ylab="mg/L",
+#          las=0,
+#          ylim=c(0,15),
+#          col=c(8),
+#          cex.lab = 2, 
+#          cex.axis = 1.2 ,
+#          whisklwd=2.5,
+#          outpch="o" )
+# abline(h=6,col=4,lwd=2)
+# abline(h=5,col=3,lwd=2)
+# abline(h=4,col=7,lwd=2)
+# abline(h=2,col=2,lwd=2)
+# legend("topleft",
+#        title="Legenda",
+#        legend=c("Classe 1","Classe 2","Classe 3","Classe 4","Pior Classe"),
+#        lty=c(1,1,1,1,1),
+#        col=c(4,3,7,2,"#AC5079"),
+#        lwd=c(10,10,10,10,10),
+#        cex = 1.75,
+#        pt.cex = 1.75,
+#        bg="white")
+# legend("topright",
+#        legend=c("2018-2020"),
+#        pch = 22,
+#        pt.bg="gray",
+#        title="Período",
+#        cex = 2,
+#        pt.cex = 2,
+#        bg="white")
 ```
 
-```{r Gráfico OD baixo jacui}
+```{r Gráfico OD baixo jacui, warning = FALSE, message = FALSE}
 (od_bj<-ggplot(bj_rsagua,
                        aes(`CÓD. ESTAÇÃO`,
                            `OXIGÊNIO DISSOLVIDO`,
@@ -162,20 +162,20 @@ legend("topright",
                 outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
                 width= 0.7)+
    labs(title = "Oxigênio Dissolvido no período 2018-2020",
-        x="Estação",
+        x="",
         y="mg/L")+
    # geom_jitter(width = .05,
    #             alpha=.2,
    #             size=1.5,
    #             color="black")+
-   # scale_y_continuous(expand = expansion(mult = c(0,0)),
-   #                    n.breaks = 11,
-   #                    limits = c(-1,21))+
-   scale_y_continuous(expand = expansion(mult = c(0.03,0.17)),
-                      n.breaks = 8,
-                      limits = c(min(0, na.rm = TRUE),
-                                 max(bj_rsagua$`OXIGÊNIO DISSOLVIDO`), na.rm = TRUE))+
-   # scale_x_discrete(limits = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+   scale_y_continuous(
+     expand = expansion(mult = c(0.03,0.17)),
+     n.breaks = 8,
+     limits = c(min(0, na.rm = TRUE),
+                max(bj_rsagua$`OXIGÊNIO DISSOLVIDO`), na.rm = TRUE))+
+   scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
    # geom_smooth(method = "lm",
    #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
    #             aes(group=1),
@@ -196,10 +196,484 @@ legend("topright",
  #                                               lwd=c(2,2,2,2,2),
  #                                               shape=c(NA,NA,NA,NA,NA),
  #                                               alpha=1)))+
- theme(axis.text.y = element_text(color = "black",
-                                  size = 50))+
- theme_classic())
+ theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+ # theme_classic(
+ # base_size = 17,
+ # face = "bold",
+ # axis.text = element_text(size = 18),
+ # text = element_text(size = rel(3.5)
+ # )
+)
+
 ```
+
+## Demanda Bioquímica de Oxigênio
+
+```{r Gráfico DBO baixo jacui, warning = FALSE, message = FALSE}
+(dbo_bj<-ggplot(bj_rsagua,
+                aes(`CÓD. ESTAÇÃO`,
+                    `DEMANDA BIOQUÍMICA DE OXIGÊNIO`,
+                    fill=`DEMANDA BIOQUÍMICA DE OXIGÊNIO`))+
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=10,
+            ymax=Inf,
+            alpha=1,
+            fill="#ac5079")+ #>pior classe
+   # annotate("rect",
+   #          xmin=-Inf,
+   #          xmax=Inf,
+   #          ymin=2,
+   #          ymax=4,
+   #          alpha=1,
+   #          fill="#eb5661")+ #classe 4
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=5,
+            ymax=10,
+            alpha=1,
+            fill="#fcf7ab")+ #classe 3
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=3,
+            ymax=5,
+            alpha=1,
+            fill="#70c18c")+ #classe 2
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=-Inf,
+            ymax=3,
+            alpha=1,
+            fill="#8dcdeb")+ #classe 1
+   stat_boxplot(geom = 'errorbar',
+                width=0.3,
+                position = position_dodge(width = 0.65))+
+   geom_boxplot(fill='#F8F8FF',
+                color="black",
+                outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
+                width= 0.7)+
+   labs(title = "DBO no período 2018-2020",
+        x="",
+        y="mg/L")+
+   # geom_jitter(width = .05,
+   #             alpha=.2,
+   #             size=1.5,
+   #             color="black")+
+   scale_y_continuous(
+     expand = expansion(mult = c(0.03,0.10)),
+     n.breaks = 8,
+     limits = c(min(0, na.rm = TRUE),
+                max(bj_rsagua$`DEMANDA BIOQUÍMICA DE OXIGÊNIO`), na.rm = TRUE))+
+   scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+   # geom_smooth(method = "lm",
+   #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
+   #             aes(group=1),
+   #             alpha=.5,
+   #             na.rm = TRUE,
+   #             size = 1)+
+ #   geom_line(aes(color="red"),
+ #             alpha=.0)+
+ # scale_color_manual("Legenda",
+ #                    guide="legend",
+ #                    values = c("Pior classe"="#ac5079",
+ #                               "Classe 3"="#fcf7ab",
+ #                               "Classe 2"="#70c18c",
+ #                               "Classe 1"="#8dcdeb"))+
+ # guides(color=guide_legend(override.aes = list(linetype=c(1,1,1,1),
+ #                                               lwd=c(2,2,2,2),
+ #                                               shape=c(NA,NA,NA,NA),
+ #                                               alpha=1)))+
+ theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+)
+```
+
+```{r sumário}
+(sum_dbo_bj <- bj_rsagua %>%
+   select(`CÓD. ESTAÇÃO`, `DEMANDA BIOQUÍMICA DE OXIGÊNIO`) %>% 
+   group_by(`CÓD. ESTAÇÃO`) %>% 
+   summarize(
+     min = 
+       min(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 
+           na.rm = TRUE),
+     q1 = 
+       quantile(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 0.25, 
+                na.rm = TRUE),
+     median = 
+       median(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 
+              na.rm = TRUE),
+     mean = 
+       mean(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 
+            na.rm= TRUE),
+     q3 = 
+       quantile(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 0.75, 
+                na.rm = TRUE),
+     max = 
+       max(`DEMANDA BIOQUÍMICA DE OXIGÊNIO`, 
+           na.rm = TRUE))
+)
+```
+
+## Fósforo total
+
+```{r Gráfico Fósforo total periodo1, warning = FALSE, message = FALSE}
+(ptot_bj<-ggplot(bj_rsagua,
+                aes(`CÓD. ESTAÇÃO`,
+                    `FÓSFORO TOTAL`,
+                    fill=`FÓSFORO TOTAL`))+
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0.15,
+            ymax=Inf,
+            alpha=1,
+            fill="#ac5079")+ #>pior classe
+   #annotate("rect",
+   #        xmin=-Inf,
+   #       xmax=Inf,
+   #      ymin=2,
+   #     ymax=4,
+   #    alpha=1,
+   #   fill="#eb5661")+ #classe 4
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0.1,
+            ymax=0.15,
+            alpha=1,
+            fill="#fcf7ab")+ #classe 3
+   #annotate("rect",
+   #        xmin=-Inf,
+   #       xmax=Inf,
+   #      ymin=3,
+   #     ymax=5,
+   #    alpha=1,
+   #   fill="#70c18c")+ #classe 2
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0,
+            ymax=0.1,
+            alpha=1,
+            fill="#8dcdeb")+ #classe 1
+   stat_boxplot(geom = 'errorbar',
+                width=0.3,
+                position = position_dodge(width = 0.65))+
+   geom_boxplot(fill='#F8F8FF',
+                color="black",
+                outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
+                width= 0.7)+
+   labs(title = "Fósforo total no período 2018-2020",
+        x="",
+        y="mg/L")+
+   # geom_jitter(width = .05,
+   #             alpha=.2,
+   #             size=1.5,
+   #             color="black")+
+   scale_y_continuous(expand = expansion(mult = c(0.03,0.13)),
+                      n.breaks = 8,
+                      limits = c(min(bj_rsagua$`FÓSFORO TOTAL`, na.rm = TRUE),
+                                 max(bj_rsagua$`FÓSFORO TOTAL`), na.rm = TRUE),
+                      trans = "log10")+
+   #  scale_x_discrete(limits = c("87398500", "87398980", "87398900", "87398950", "87405500", "87406900", "87409900"))+
+   # geom_smooth(method = "lm",
+   #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
+   #             aes(group=1),
+   #             alpha=.5,
+   #             na.rm = TRUE,
+   #             size = 1)+
+   # geom_line(aes(color="red"),
+   #           alpha=.0)+
+   # scale_color_manual("Legenda",
+   #                    guide="legend",
+   #                    values = c("Pior Classe"="#ac5079",
+   #                               "Classe 3"="#fcf7ab",
+   #                               "Classe 1"="#8dcdeb"))+
+   # guides(color=guide_legend(override.aes = list(linetype=c(1,1,1),
+   #                                               lwd=c(2,2,2),
+   #                                               shape=c(NA,NA,NA),
+   #                                               alpha=1)))+
+   scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+)
+```
+
+## Escherichia coli
+
+```{r Gráfico Ecoli periodo1, include = FALSE, warning = FALSE, message = FALSE}
+(ecoli_bj <- ggplot(bj_rsagua, 
+                      aes(`CÓD. ESTAÇÃO`,
+                          `ESCHERICHIA_COLI`,
+                          fill = `ESCHERICHIA_COLI`))+
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=3200,
+            ymax=Inf,
+            alpha=1,
+            fill="#ac5079")+ #>pior classe
+   #annotate("rect",
+   #        xmin=-Inf,
+   #       xmax=Inf,
+   #      ymin=2,
+   #     ymax=4,
+   #    alpha=1,
+   #   fill="#eb5661")+ #classe 4
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=800,
+            ymax=3200,
+            alpha=1,
+            fill="#fcf7ab")+ #classe 3
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=160,
+            ymax=800,
+            alpha=1,
+            fill="#70c18c")+ #classe 2
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0,
+            ymax=160,
+            alpha=1,
+            fill="#8dcdeb")+ #classe 1
+   stat_boxplot(geom = 'errorbar',
+                width=0.3,
+                position = position_dodge(width = 0.65))+
+   geom_boxplot(fill='#F8F8FF',
+                color="black",
+                outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
+                width= 0.7)+
+   labs(title = "Escherichia coli no período 2018-2020",
+        x="",
+        y="NMP/100mL")+
+   # geom_jitter(width = .05,
+   #             alpha=.2,
+   #             size=1.5,
+   #             color="black")+
+    scale_y_continuous(expand = expansion(mult = c(0.15, 0.10)),
+                      n.breaks = 9,
+                      limits = c(min(bj_rsagua$ESCHERICHIA_COLI,
+                                     na.rm = TRUE),
+                                 max(bj_rsagua$ESCHERICHIA_COLI,
+                                     na.rm = TRUE)),
+                      trans = "log10",
+                      labels = scales::number_format(accuracy = 1,
+                                                     decimal.mark = ",",
+                                                     big.mark = " "))+
+    scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+   # geom_smooth(method = "lm",
+   #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
+   #             aes(group=1),
+   #             alpha=.5,
+   #             na.rm = TRUE,
+   #             size = 1)+
+   # geom_line(aes(color="red"),
+   #           alpha=.0)+
+   # scale_color_manual("Legenda",
+   #                    guide="legend",
+   #                    values = c("Pior Classe"="#ac5079",
+   #                               "Classe 3"="#fcf7ab",
+   #                               "Classe 2"="#70c18c",
+   #                               "Classe 1"="#8dcdeb"))+
+   # guides(color=guide_legend(override.aes = list(linetype=c(1,1,1,1),
+   #                                               lwd=c(2,2,2,2),
+   #                                               shape=c(NA,NA,NA,NA),
+   #                                               alpha=1)))+
+theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+)
+```
+
+## Nitrogênio amoniacal
+
+```{r Gráfico Nitrogênio total periodo1, warning = FALSE, message = FALSE}
+(namon_bj <- ggplot(bj_rsagua,
+                    aes(`CÓD. ESTAÇÃO`,
+                        `NITROGÊNIO AMONIACAL`,
+                        fill = `NITROGÊNIO AMONIACAL`))+
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0,
+            ymax=3.7,
+            alpha=1,
+            fill="#8dcdeb")+ #classe 1
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=13.3,
+            ymax=Inf,
+            alpha=1,
+            fill="#ac5079")+ #>pior classe
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=3.7,
+            ymax=13.3,
+            alpha=1,
+            fill="#fcf7ab")+ #classe 3
+   stat_boxplot(geom = 'errorbar',
+                width=0.3,
+                position = position_dodge(width = 0.65))+
+   geom_boxplot(fill='#F8F8FF',
+                color="black",
+                outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
+                width= 0.7)+
+   labs(title = "Nitrogênio amoniacal no período 2018-2020",
+        x="",
+        y="mg/L")+
+   # geom_jitter(width = .05,
+   #             alpha=.2,
+   #             size=1.5,
+   #             color="black")+
+   scale_y_continuous(expand = expansion(mult = c(0.01, 0.05)),
+                      n.breaks = 9,
+                      limits = c(min(bj_rsagua$`NITROGÊNIO AMONIACAL`, na.rm = TRUE),
+                                 max(15, na.rm = TRUE)),
+                      trans = "log10",
+                      labels = scales::number_format(accuracy = .001,
+                                                     decimal.mark = ",",
+                                                     big.mark = " "))+
+   scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+   # geom_smooth(method = "lm",
+   #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
+   #             aes(group=1),
+   #             alpha=.5,
+   #             na.rm = TRUE,
+   #             size = 1)+
+   # geom_line(aes(color="red"),
+   #           alpha=.0)+
+   # scale_color_manual("Legenda",
+   #                    guide="legend",
+   #                    values = c("Pior Classe"="#ac5079",
+ #                               "Classe 3"="#fcf7ab",
+ #                               "Classe 1"="#8dcdeb"))+
+ # guides(color=guide_legend(override.aes = list(linetype=c(1,1,1),
+ #                                               lwd=c(2,2,2),
+ #                                               shape=c(NA,NA,NA),
+ #                                               alpha=1)))+
+ theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+)
+```
+
+## Turbidez
+```{r Gráfico Turbidez periodo1, warning = FALSE, message = FALSE}
+(turb_bj <- ggplot(bj_rsagua,
+                    aes(`CÓD. ESTAÇÃO`,
+                        TURBIDEZ,
+                        fill = TURBIDEZ))+
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=100,
+            ymax=Inf,
+            alpha=1,
+            fill="#ac5079")+ #>pior classe
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=40,
+            ymax=100,
+            alpha=1,
+            fill="#fcf7ab")+ #classe 3
+   annotate("rect",
+            xmin=-Inf,
+            xmax=Inf,
+            ymin=0,
+            ymax=40,
+            alpha=1,
+            fill="#8dcdeb")+ #classe 1
+   stat_boxplot(geom = 'errorbar',
+                width=0.3,
+                position = position_dodge(width = 0.65))+
+   geom_boxplot(fill='#F8F8FF',
+                color="black",
+                outlier.shape = 1, #se deixar NA fica só o jitter, se não, deixa 1
+                width= 0.7)+
+   labs(title = "Turbidez no período 2018-2020",
+        x="",
+        y="UNT")+
+   # geom_jitter(width = .05,
+   #             alpha=.2,
+   #             size=1.5,
+   #             color="black")+
+    scale_y_continuous(expand = expansion(mult = c(0.03, 0.13)),
+                      n.breaks = 8,
+                  limits = c(min(bj_rsagua$TURBIDEZ, na.rm = TRUE),
+                             max(bj_rsagua$TURBIDEZ, na.rm = TRUE)),
+                      trans = "log10",
+                      labels = scales::number_format(accuracy = 1,
+                                                     decimal.mark = ",",
+                                                     big.mark = " "))+
+   scale_x_discrete(
+     limits = c("85400010", "85427100", "85642010", "85651020", "85658000", "85662000", "85930000", "87390060", "87510060"),
+     labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))+
+   # geom_smooth(method = "lm",
+   #             se=FALSE, #se deixar TRUE gera o intervalo de confiança de 95%
+   #             aes(group=1),
+   #             alpha=.5,
+   #             na.rm = TRUE,
+   #             size = 1)+
+   # geom_line(aes(color="red"),
+   #           alpha=.0)+
+   # scale_color_manual("Legenda",
+   #                    guide="legend",
+   #                    values = c("Pior Classe"="#ac5079",
+   #                               "Classe 3"="#fcf7ab",
+   #                               "Classe 1"="#8dcdeb"))+
+   # guides(color=guide_legend(override.aes = list(linetype=c(1,1,1),
+   #                                               lwd=c(2,2,2),
+   #                                               shape=c(NA,NA,NA),
+   #                                               alpha=1)))+
+  theme(
+   plot.title = element_text(size = 19),
+   axis.title.y = element_text(size = 15),
+   axis.text.y = element_text(size = 17),
+   axis.text.x = element_text(size = 17),
+ )
+)
+```
+
+# Salvando gráficos
 
 ```{r Salvando todos}
 ggsave("od_bj.png",
@@ -207,26 +681,34 @@ ggsave("od_bj.png",
        path = "./graficos",
        dpi = 300,
        type = "cairo")
-# 
-# ggsave("od_p2.png",
-#        plot = od_p2,
-#        path = "./graficos",
-#        dpi = 300,
-#        type = "cairo")
-# 
-# ggsave("od_p3.png",
-#        plot = od_p3,
-#        path = "./graficos",
-#        dpi = 300,
-#        type = "cairo")
-# 
-# ggsave("od_3periodos_2.png",
-#        units = c("px"),
-#        width = 4500,
-#        height = 2993,
-#        plot = grid.arrange(od_p1, od_p2, od_p3, ncol = 3),
-#        path = "./graficos",
-#        dpi = 300,
-#        type = "cairo")
-```
 
+ggsave("dbo_bj.png",
+       plot = dbo_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+
+ggsave("ptot_bj.png",
+       plot = ptot_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+
+ggsave("ecoli_bj.png",
+       plot = ecoli_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+
+ggsave("namon_bj.png",
+       plot = namon_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+
+ggsave("turb_bj.png",
+       plot = turb_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+```
