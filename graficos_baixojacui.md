@@ -1,7 +1,7 @@
 ---
 title: "Gráficos Baixo Jacuí 2018-2020"
 author: "Leonardo Fernandes Wink"
-date: "`r format(Sys.time(), '%d/%m/%Y')`"
+date: "08/09/2022"
 output:
   html_document: 
     highlight: haddock
@@ -27,7 +27,8 @@ editor_options:
 fig.align: center
 ---
 # Importando os pacotes
-```{r importando pacotes, message = FALSE, warning = TRUE}
+
+```r
 library(readr)
 library(rmarkdown)
 library(qboxplot)
@@ -45,7 +46,8 @@ library(gtsummary)
 ```
 
 # Importando as planilhas
-```{r importando planilhas v1, echo = TRUE, message = TRUE, warning = FALSE}
+
+```r
 BJ_od20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_od.csv",header=T)
 BJ_dbo20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_dbo.csv",header=T)
 BJ_ptot20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ptot.csv",header=T)
@@ -54,7 +56,8 @@ BJ_ecoli20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baix
 BJ_turb20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_turb.csv",header=T)
 ```
 
-```{r importando planilha, echo = TRUE, message = TRUE, warning = FALSE}
+
+```r
 bj_rsagua <- read_excel("bj_rsagua.xls", 
     sheet = "Dados_Ajustados", col_types = c("numeric", 
         "text", "numeric", "numeric", "text", 
@@ -78,7 +81,8 @@ bj_rsagua <- read_excel("bj_rsagua.xls",
 
 # Parâmetros físico químicos
 ## Oxigênio Dissolvido
-```{r versao1}
+
+```r
 qboxplot(BJ_od20182020,
          main="Oxigênio Dissolvido",
          cex.main=2,
@@ -114,7 +118,10 @@ legend("topright",
        bg="white")
 ```
 
-```{r Gráfico OD baixo jacui}
+![](graficos_baixojacui_files/figure-html/versao1-1.png)<!-- -->
+
+
+```r
 (od_bj<-ggplot(bj_rsagua,
                        aes(`CÓD. ESTAÇÃO`,
                            `OXIGÊNIO DISSOLVIDO`,
@@ -201,12 +208,26 @@ legend("topright",
  theme_classic())
 ```
 
-```{r Salvando todos}
+![](graficos_baixojacui_files/figure-html/Gráfico OD baixo jacui-1.png)<!-- -->
+
+
+```r
 ggsave("od_bj.png",
        plot = od_bj,
        path = "./graficos",
        dpi = 300,
        type = "cairo")
+```
+
+```
+## Saving 10 x 6.66 in image
+```
+
+```
+## Warning: Using ragg device as default. Ignoring `type` and `antialias` arguments
+```
+
+```r
 # 
 # ggsave("od_p2.png",
 #        plot = od_p2,

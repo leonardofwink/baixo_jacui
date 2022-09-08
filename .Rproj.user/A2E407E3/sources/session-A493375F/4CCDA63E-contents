@@ -1,7 +1,7 @@
 ---
-title: "baixo_jacui"
+title: "Gráficos Baixo Jacuí 2018-2020"
 author: "Leonardo Fernandes Wink"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
 output:
   html_document: 
     highlight: haddock
@@ -26,7 +26,8 @@ editor_options:
   chunk_output_type: console
 fig.align: center
 ---
-```{r importando pacotes}
+# Importando os pacotes
+```{r importando pacotes, message = FALSE, warning = TRUE}
 library(readr)
 library(rmarkdown)
 library(qboxplot)
@@ -43,7 +44,17 @@ library(modelsummary)
 library(gtsummary)
 ```
 
-```{r}
+# Importando as planilhas
+```{r importando planilhas v1, echo = TRUE, message = TRUE, warning = FALSE}
+BJ_od20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_od.csv",header=T)
+BJ_dbo20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_dbo.csv",header=T)
+BJ_ptot20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ptot.csv",header=T)
+BJ_namon20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_namon.csv",header=T)
+BJ_ecoli20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_ecoli.csv",header=T)
+BJ_turb20182020<-read.csv("C:/Users/Léo/Desktop/coisas da bolsaa/RHG/G070_Baixo_Jacui/graficos-boxplot/Dados_Jacui - bj_turb.csv",header=T)
+```
+
+```{r importando planilha, echo = TRUE, message = TRUE, warning = FALSE}
 bj_rsagua <- read_excel("bj_rsagua.xls", 
     sheet = "Dados_Ajustados", col_types = c("numeric", 
         "text", "numeric", "numeric", "text", 
@@ -63,6 +74,44 @@ bj_rsagua <- read_excel("bj_rsagua.xls",
         "numeric", "numeric", "numeric", 
         "numeric"),
 		range = "A1:AY44")
+```
+
+# Parâmetros físico químicos
+## Oxigênio Dissolvido
+```{r versao1}
+qboxplot(BJ_od20182020,
+         main="Oxigênio Dissolvido",
+         cex.main=2,
+         probs=c(0.20,0.5,0.8),
+         ylab="mg/L",
+         las=0,
+         ylim=c(0,15),
+         col=c(8),
+         cex.lab = 2, 
+         cex.axis = 1.2 ,
+         whisklwd=2.5,
+         outpch="o" )
+abline(h=6,col=4,lwd=2)
+abline(h=5,col=3,lwd=2)
+abline(h=4,col=7,lwd=2)
+abline(h=2,col=2,lwd=2)
+legend("topleft",
+       title="Legenda",
+       legend=c("Classe 1","Classe 2","Classe 3","Classe 4","Pior Classe"),
+       lty=c(1,1,1,1,1),
+       col=c(4,3,7,2,"#AC5079"),
+       lwd=c(10,10,10,10,10),
+       cex = 1.75,
+       pt.cex = 1.75,
+       bg="white")
+legend("topright",
+       legend=c("2018-2020"),
+       pch = 22,
+       pt.bg="gray",
+       title="Período",
+       cex = 2,
+       pt.cex = 2,
+       bg="white")
 ```
 
 ```{r Gráfico OD baixo jacui}
@@ -147,6 +196,37 @@ bj_rsagua <- read_excel("bj_rsagua.xls",
  #                                               lwd=c(2,2,2,2,2),
  #                                               shape=c(NA,NA,NA,NA,NA),
  #                                               alpha=1)))+
- # theme(legend.position = c("87405500", 15))+
+ theme(axis.text.y = element_text(color = "black",
+                                  size = 50))+
  theme_classic())
 ```
+
+```{r Salvando todos}
+ggsave("od_bj.png",
+       plot = od_bj,
+       path = "./graficos",
+       dpi = 300,
+       type = "cairo")
+# 
+# ggsave("od_p2.png",
+#        plot = od_p2,
+#        path = "./graficos",
+#        dpi = 300,
+#        type = "cairo")
+# 
+# ggsave("od_p3.png",
+#        plot = od_p3,
+#        path = "./graficos",
+#        dpi = 300,
+#        type = "cairo")
+# 
+# ggsave("od_3periodos_2.png",
+#        units = c("px"),
+#        width = 4500,
+#        height = 2993,
+#        plot = grid.arrange(od_p1, od_p2, od_p3, ncol = 3),
+#        path = "./graficos",
+#        dpi = 300,
+#        type = "cairo")
+```
+
